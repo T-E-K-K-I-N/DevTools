@@ -3,16 +3,26 @@ using DevTools.Kafka.Options;
 using DevTools.Kafka.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DevTools.Kafka.DI
 {
+    /// <summary>
+    /// Расширения для управления зависимостями в <see cref="IServiceCollection"/>
+    /// </summary>
     public static class ServiceCollectionExtensions
     {
+        /// <summary>
+        /// Добавляет JSON потребитель Kafka в переданную коллекцию сервисов
+        /// </summary>
+        /// <typeparam name="TKey">Тип ключа сообщения</typeparam>
+        /// <typeparam name="TPayload">Тип тела сообщения</typeparam>
+        /// <typeparam name="TOptions">Тип опций потребителя</typeparam>
+        /// <typeparam name="TMessageHandler">Тип обработчика сообщения</typeparam>
+        /// <param name="services"><see cref="IServiceCollection"/></param>
+        /// <param name="configuration"><see cref="IConfiguration"/></param>
+        /// <param name="configurationKey">Ключ опций в конфигурации</param>
+        /// <returns>Переданный <see cref="IServiceCollection"/></returns>
+        /// <remarks>Обработчик сообщения будет зарегистрирован, как Scoped сервис</remarks>
         public static IServiceCollection AddKafkaJsonConsumer<TKey, TPayload, TOptions, TMessageHandler>(
             this IServiceCollection services,
             IConfiguration configuration,
@@ -34,6 +44,19 @@ namespace DevTools.Kafka.DI
             return services;
         }
 
+        /// <summary>
+        /// Добавляет Protobuf потребитель Kafka в переданную коллекцию сервисов
+        /// </summary>
+        /// <typeparam name="TKey">Тип ключа сообщения</typeparam>
+        /// <typeparam name="TPayload">Тип тела сообщения</typeparam>
+        /// <typeparam name="TOptions">Тип опций потребителя</typeparam>
+        /// <typeparam name="TMessageHandler">Тип обработчика сообщения</typeparam>
+        /// <param name="services"><see cref="IServiceCollection"/></param>
+        /// <param name="configuration"><see cref="IConfiguration"/></param>
+        /// <param name="configurationKey">Ключ опций в конфигурации</param>
+        /// <param name="payloadAdapter">Адаптер массива байт в тип Protobuf</param>
+        /// <returns>Переданный <see cref="IServiceCollection"/></returns>
+        /// <remarks>Обработчик сообщения будет зарегистрирован, как Scoped сервис</remarks>
         public static IServiceCollection AddKafkaProtobufConsumer<TKey, TPayload, TOptions, TMessageHandler>(
             this IServiceCollection services,
             IConfiguration configuration,

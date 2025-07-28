@@ -5,6 +5,12 @@ using Microsoft.Extensions.Options;
 
 namespace DevTools.Kafka.Services
 {
+    /// <summary>
+    /// Потребитель Protobuf сообщений Kafka
+    /// </summary>
+    /// <typeparam name="TKey">Тип ключа сообщения</typeparam>
+    /// <typeparam name="TPayload">Protobuf тип тела сообщения</typeparam>
+    /// <typeparam name="TOptions">Тип опций</typeparam>
     internal sealed class KafkaProtobufConsumer<TKey, TPayload, TOptions>
         : KafkaConsumerBase<TKey, byte[], TPayload, TOptions>
         where TPayload : class
