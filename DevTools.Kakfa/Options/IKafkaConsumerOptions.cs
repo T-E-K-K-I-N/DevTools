@@ -1,4 +1,4 @@
-﻿namespace DevTools.Kakfa.Options
+﻿namespace DevTools.Kafka.Options
 {
     /// <summary>
     /// Настройки консьюмера

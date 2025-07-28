@@ -1,4 +1,6 @@
-﻿namespace DevTools.Kakfa.Abstractions
+﻿using DevTools.Kafka.Abstractions;
+
+namespace DevTools.Kafka.Abstractions
 {
     /// <summary>
     /// Обработчик сообщения Kafka
