@@ -6,7 +6,7 @@
 
 ## Установка:
 В конфигурационном файле appsettings.json необходимо добавить следующую структуру:
-```
+``` json
 "Kafka":{
 	"ConsumerOptions":{
 		"Server": "#{server_url}#",
