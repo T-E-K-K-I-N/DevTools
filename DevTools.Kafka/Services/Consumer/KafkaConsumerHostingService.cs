@@ -3,7 +3,7 @@ using DevTools.Kafka.Abstractions.Consumer;
 using DevTools.Kafka.Options;
 using Microsoft.Extensions.Hosting;
 
-namespace DevTools.Kafka.Services
+namespace DevTools.Kafka.Services.Consumer
 {
     /// <summary>
     /// Фоновый сервис для хостинга потребителя Kafka

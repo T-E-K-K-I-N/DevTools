@@ -1,11 +1,10 @@
 ﻿using Confluent.Kafka;
 using DevTools.Kafka.Abstractions.Producer;
 using DevTools.Kafka.Options;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace DevTools.Kafka.Services
+namespace DevTools.Kafka.Services.Producer
 {
     /// <summary>
     /// Отправитель сообщений Kafka
@@ -13,7 +12,7 @@ namespace DevTools.Kafka.Services
     /// <typeparam name="TKey">Тип ключа сообщения</typeparam>
     /// <typeparam name="TPayload">Тип тела сообщения</typeparam>
     /// <typeparam name="TOptions">Тип опций</typeparam>
-    internal class KafkaProducer<TKey, TPayload, TOptions> : IKafkaProducer<TKey, TPayload>
+    internal sealed class KafkaProducer<TKey, TPayload, TOptions> : IKafkaProducer<TKey, TPayload>
         where TPayload : class
         where TOptions : class, IKafkaProducerOptions
     {
@@ -26,7 +25,7 @@ namespace DevTools.Kafka.Services
         /// </summary>
         /// <param name="logger"><see cref="ILogger{T}"/></param>
         /// <param name="options"><see cref="IKafkaProducerOptions"/></param>
-        protected KafkaProducer(
+        public KafkaProducer(
             ILogger<KafkaProducer<TKey, TPayload, TOptions>> logger, 
             IOptions<TOptions> options)
         {

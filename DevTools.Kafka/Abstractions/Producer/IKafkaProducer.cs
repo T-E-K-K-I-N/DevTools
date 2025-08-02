@@ -1,6 +1,4 @@
-﻿using Confluent.Kafka;
-
-namespace DevTools.Kafka.Abstractions.Producer
+﻿namespace DevTools.Kafka.Abstractions.Producer
 {
     /// <summary>
     /// Отправитель Kafka

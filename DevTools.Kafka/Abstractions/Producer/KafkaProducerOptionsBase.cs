@@ -1,6 +1,6 @@
 ﻿using DevTools.Kafka.Options;
 
-namespace DevTools.Kafka.Abstractions
+namespace DevTools.Kafka.Abstractions.Producer
 {
     public abstract record KafkaProducerOptionsBase : IKafkaProducerOptions
     {

@@ -17,8 +17,9 @@
 		"Server": "#{server_url}#",
 		"Topic": "#{topic}#",
 		"Partitioner": "#{partitioner}#",
-		"Partition": "#{partition}#"
+		"Partition": "#{partition}#",
+		"AutoCreateTopics": "#{auto_create_topics}#",
+		"Acks": "#{acks}#"
 	}
 },
-
 ```
