@@ -7,6 +7,8 @@ namespace DevTools.Kafka.Abstractions
     /// </summary>
     public abstract record KafkaConsumerOptionsBase : IKafkaConsumerOptions
     {
+        public const string Path = "Kafka:ConsumerOptions";
+
         /// <summary>
         /// Сервер Kafka
         /// </summary>

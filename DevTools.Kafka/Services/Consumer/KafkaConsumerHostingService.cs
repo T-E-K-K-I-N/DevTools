@@ -1,4 +1,5 @@
 ﻿using DevTools.Kafka.Abstractions;
+using DevTools.Kafka.Abstractions.Consumer;
 using DevTools.Kafka.Options;
 using Microsoft.Extensions.Hosting;
 

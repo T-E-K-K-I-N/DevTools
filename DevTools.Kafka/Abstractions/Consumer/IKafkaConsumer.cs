@@ -1,4 +1,4 @@
-﻿namespace DevTools.Kafka.Abstractions
+﻿namespace DevTools.Kafka.Abstractions.Consumer
 {
     /// <summary>
     /// Потребитель Kafka

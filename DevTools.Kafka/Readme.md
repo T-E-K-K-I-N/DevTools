@@ -5,11 +5,20 @@
 Проект использует версию .NET 8.0
 
 ## Установка:
-В конфигурационном файле appsettings.json необходимо добавить следующую стректуру:
+В конфигурационном файле appsettings.json необходимо добавить следующую структуру:
 ```
-"KafkaConsumerOptions":{
-	"Server": "#{server_url}#",
-	"Topic": "#{topic}#",
-	"GroupId": "#{group_Id}#"
+"Kafka":{
+	"ConsumerOptions":{
+		"Server": "#{server_url}#",
+		"Topic": "#{topic}#",
+		"GroupId": "#{group_Id}#"
+	},
+	"ProducerOptions":{
+		"Server": "#{server_url}#",
+		"Topic": "#{topic}#",
+		"Partitioner": "#{partitioner}#",
+		"Partition": "#{partition}#"
+	}
 },
+
 ```

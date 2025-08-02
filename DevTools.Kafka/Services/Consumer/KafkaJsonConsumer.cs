@@ -1,5 +1,6 @@
 ﻿using DevTools.Kafka.Exceptions;
 using DevTools.Kafka.Options;
+using DevTools.Kafka.Services.Consumer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;

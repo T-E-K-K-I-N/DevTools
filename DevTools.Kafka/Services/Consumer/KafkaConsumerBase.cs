@@ -1,12 +1,12 @@
 ﻿using Confluent.Kafka;
 using DevTools.Kafka.Abstractions;
-using DevTools.Kafka.Abstractions;
+using DevTools.Kafka.Abstractions.Consumer;
 using DevTools.Kafka.Options;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace DevTools.Kafka.Services
+namespace DevTools.Kafka.Services.Consumer
 {
     /// <summary>
     /// Базовый потребитель сообщений Kafka
@@ -82,6 +82,15 @@ namespace DevTools.Kafka.Services
                     _options.Topic,
                     _options.GroupId);
             }
+            catch (ConsumeException ex)
+            {
+                _logger.LogError(
+                    "Потребление сообщений Kafka завершилось с ошибкой: {Reason}. {KafkaServer} {KafkaTopic} {KafkaGroupId}.",
+                    ex.Error.Reason,
+                    _options.Server,
+                    _options.Topic,
+                    _options.GroupId);
+            }
             catch (Exception ex)
             {
                 _logger.LogError(
@@ -104,6 +113,12 @@ namespace DevTools.Kafka.Services
         /// <returns>Тело сообщения для обработчика</returns>
         protected abstract TPayload ConvertMessagePayload(TBasePayload basePayload);
 
+        /// <summary>
+        /// Обрабатывает сообщение
+        /// </summary>
+        /// <param name="message">Сообщение из Kafka</param>
+        /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
+        /// <returns><see cref="Task"/></returns>
         private async Task ProcessMessageAsync(
             KafkaMessage<TKey, TPayload> message,
             CancellationToken cancellationToken = default)
