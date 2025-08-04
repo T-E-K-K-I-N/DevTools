@@ -1,32 +1,32 @@
-namespace DevTools.Auth.Options;
+п»їnamespace DevTools.Auth.Options;
 
 /// <summary>
-/// Настройки аутентификации
+/// РќР°СЃС‚СЂРѕР№РєРё Р°СѓС‚РµРЅС‚РёС„РёРєР°С†РёРё
 /// </summary>
 public interface IAuthOptions
 {
     /// <summary>
-    /// Ссылка на Keycloak
+    /// РЎСЃС‹Р»РєР° РЅР° Keycloak
     /// </summary>
     public string Url { get; }
 
     /// <summary>
-    /// Realm в Keyclock
+    /// Realm РІ Keyclock
     /// </summary>
     public string Realm { get; }
 
     /// <summary>
-    /// Идентификатор клиента
+    /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РєР»РёРµРЅС‚Р°
     /// </summary>
     public string ClientId { get; }
 
     /// <summary>
-    /// Секрет клиента
+    /// РЎРµРєСЂРµС‚ РєР»РёРµРЅС‚Р°
     /// </summary>
     public string ClientSecret { get; }
 
     /// <summary>
-    /// Не отключать авторизацию
+    /// РќРµ РѕС‚РєР»СЋС‡Р°С‚СЊ Р°РІС‚РѕСЂРёР·Р°С†РёСЋ
     /// </summary>
     public bool? UseGwtAuthorization { get; }
 }
