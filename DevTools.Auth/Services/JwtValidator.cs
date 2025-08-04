@@ -1,4 +1,4 @@
-using DevTools.Auth.Abstractions;
+п»їusing DevTools.Auth.Abstractions;
 using DevTools.Auth.Options;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -7,9 +7,9 @@ using Microsoft.IdentityModel.Tokens;
 namespace DevTools.Auth.Services;
 
 /// <summary>
-/// Класс проверки авторизации Keyсloak
+/// РљР»Р°СЃСЃ РїСЂРѕРІРµСЂРєРё Р°РІС‚РѕСЂРёР·Р°С†РёРё KeyСЃloak
 /// </summary>
-/// <typeparam name="TOptions">Тип опций</typeparam>
+/// <typeparam name="TOptions">РўРёРї РѕРїС†РёР№</typeparam>
 internal sealed class JwtValidator<TOptions> : IJwtValidator
     where TOptions : class, IAuthOptions
 {
@@ -18,10 +18,10 @@ internal sealed class JwtValidator<TOptions> : IJwtValidator
     private readonly ILogger<JwtValidator<TOptions>> _logger;
 
     /// <summary>
-    /// Инициализирует новый экземпляр класса <see cref="JwtValidator{TOptions}"/>
+    /// РРЅРёС†РёР°Р»РёР·РёСЂСѓРµС‚ РЅРѕРІС‹Р№ СЌРєР·РµРјРїР»СЏСЂ РєР»Р°СЃСЃР° <see cref="JwtValidator1{TOptions}"/>
     /// </summary>
     /// <param name="options"><see cref="IAuthOptions"/></param>
-    /// <param name="openApiConnectServerKeyReceiver">Ключ OpenApi</param>
+    /// <param name="openApiConnectServerKeyReceiver">РљР»СЋС‡ OpenApi</param>
     /// <param name="logger"><see cref="ILogger{T}"/></param>
     public JwtValidator(
         IOptions<TOptions> options,
@@ -41,7 +41,7 @@ internal sealed class JwtValidator<TOptions> : IJwtValidator
         if (_options.UseGwtAuthorization != null && _options.UseGwtAuthorization == false)
             return true;
 
-        _logger.LogInformation("Попытка авторизации KeyCloak");
+        _logger.LogInformation("РџРѕРїС‹С‚РєР° Р°РІС‚РѕСЂРёР·Р°С†РёРё KeyCloak");
         _logger.LogDebug("Url: {url}", _options.Url);
         _logger.LogDebug("ClientId: {clientId}", _options.ClientId);
 
@@ -58,9 +58,9 @@ internal sealed class JwtValidator<TOptions> : IJwtValidator
                                     .FirstOrDefault()
             };
 
-            _logger.LogDebug("validationparameters.ValidIssuer : {validIssuer}", 
+            _logger.LogDebug("validationparameters.ValidIssuer : {validIssuer}",
                 validationParameters.ValidIssuer);
-            _logger.LogDebug("validationparameters.IssuerSigningKey : {issuerSigningKey}", 
+            _logger.LogDebug("validationparameters.IssuerSigningKey : {issuerSigningKey}",
                 validationParameters.IssuerSigningKey);
 
             var tokenValidationResult = await jsonWebTokenHandler.ValidateTokenAsync(
@@ -70,13 +70,13 @@ internal sealed class JwtValidator<TOptions> : IJwtValidator
             isValid = tokenValidationResult.IsValid;
 
             if (tokenValidationResult.Exception != null)
-                _logger.LogWarning("Исключение в KeyCloak: {exception}", tokenValidationResult.Exception.Message);
+                _logger.LogWarning("РСЃРєР»СЋС‡РµРЅРёРµ РІ KeyCloak: {exception}", tokenValidationResult.Exception.Message);
 
-            _logger.LogInformation("При попытке авторизации KeyCloak ошибок не возникло.");
+            _logger.LogInformation("РџСЂРё РїРѕРїС‹С‚РєРµ Р°РІС‚РѕСЂРёР·Р°С†РёРё KeyCloak РѕС€РёР±РѕРє РЅРµ РІРѕР·РЅРёРєР»Рѕ.");
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Ошибка авторизации.");
+            _logger.LogError(ex, "РћС€РёР±РєР° Р°РІС‚РѕСЂРёР·Р°С†РёРё.");
         }
 
         return isValid;
