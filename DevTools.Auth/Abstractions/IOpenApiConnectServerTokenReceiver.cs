@@ -5,7 +5,7 @@ namespace DevTools.Auth.Abstractions;
 /// <summary>
 /// Класс, получающий серверный токен OpenAPIConnect
 /// </summary>
-internal interface IOpenApiConnectServerTokenReceiver
+public interface IOpenApiConnectServerTokenReceiver
 {
     /// <summary>
     /// Получает публичный серверный токен

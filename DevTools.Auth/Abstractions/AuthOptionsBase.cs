@@ -5,7 +5,7 @@ namespace DevTools.Auth.Abstractions;
 /// <summary>
 /// Настройки аутентификации
 /// </summary>
-public abstract record AuthOptionsBase : IAuthOptions1
+public abstract record AuthOptionsBase : IAuthOptions
 {
     public const string Path = "AuthOptions";
 

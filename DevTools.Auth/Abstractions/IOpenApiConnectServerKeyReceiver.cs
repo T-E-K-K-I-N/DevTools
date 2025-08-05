@@ -5,7 +5,7 @@ namespace DevTools.Auth.Abstractions;
 /// <summary>
 /// Класс, получающий серверный ключ OpenAPIConnect
 /// </summary>
-internal interface IOpenApiConnectServerKeyReceiver
+public interface IOpenApiConnectServerKeyReceiver
 {
     /// <summary>
     /// Получить публичный серверный ключ
