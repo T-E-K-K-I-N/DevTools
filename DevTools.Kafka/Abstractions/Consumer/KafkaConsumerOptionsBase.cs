@@ -1,12 +1,14 @@
 ﻿using DevTools.Kafka.Options;
 
-namespace DevTools.Kafka.Abstractions
+namespace DevTools.Kafka.Abstractions.Consumer
 {
     /// <summary>
     /// Настройки консьюмера
     /// </summary>
     public abstract record KafkaConsumerOptionsBase : IKafkaConsumerOptions
     {
+        public const string Path = "Kafka:ConsumerOptions";
+
         /// <summary>
         /// Сервер Kafka
         /// </summary>
