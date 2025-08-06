@@ -2,7 +2,7 @@
 
 ## Описание:
 Данная библиотека предназначена для интеграции с KeyCloak.
-Проект использует версию .NET 8.0
+<br>Позволяет производить авторизацию для методов и контроллеров через атрибуты.
 
 ## Установка:
 В конфигурационном файле appsettings.json необходимо добавить следующую структуру:
@@ -14,4 +14,15 @@
 	"ClientSecret": "#{client_secret}#",
 	"UseGwtAuthorization": "#{use_gwt_authorization}#"
 },
+```
+
+## Пример использования:
+``` C#
+builder.Services.AddAuth(configuration, "KeyCloakAuth");
+.
+.
+[Route("[action]")]
+[HttpPost]
+[Authorize(AuthenticationSchemes = "KeyCloakAuth")]
+public async Task<IActionResult> SendToKafka(SendToKafkaModel sendToKafkaModel)
 ```
