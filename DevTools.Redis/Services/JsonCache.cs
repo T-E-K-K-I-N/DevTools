@@ -66,8 +66,8 @@ internal sealed class JsonCache<TOptions> : IJsonCache
         var options = new DistributedCacheEntryOptions
         {
             AbsoluteExpirationRelativeToNow = expiration ??
-            (_options.DefaultExpiratiobSeconds.HasValue ?
-            TimeSpan.FromSeconds(_options.DefaultExpiratiobSeconds.Value) : null)
+            (_options.DefaultExpirationSeconds.HasValue ?
+            TimeSpan.FromSeconds(_options.DefaultExpirationSeconds.Value) : null)
         };
 
         await _distributedCache.SetStringAsync(

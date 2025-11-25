@@ -40,5 +40,5 @@ public abstract record RedisOptionsBase : IRedisOptions
     /// <summary>
     /// Время истечения срока действия ключа по умолчанию в сек.
     /// </summary>
-    public double? DefaultExpiratiobSeconds { get; init; } = null!;
+    public double? DefaultExpirationSeconds { get; init; } = null!;
 }

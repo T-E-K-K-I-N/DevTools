@@ -38,5 +38,5 @@ public interface IRedisOptions
     /// <summary>
     /// Время истечения срока действия ключа по умолчанию в сек.
     /// </summary>
-    double? DefaultExpiratiobSeconds { get; }
+    double? DefaultExpirationSeconds { get; }
 }
