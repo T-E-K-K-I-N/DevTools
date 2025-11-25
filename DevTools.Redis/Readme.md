@@ -13,6 +13,6 @@
 	"Password": "#{password}#",
 	"Database": "#{database}#",
 	"KeysPrefix": "#{keys_prefix}#",
-	"DefaultExpirationSeconds": "#{default_expiratio_seconds}#"
+	"DefaultExpirationSeconds": "#{default_expiration_seconds}#"
 },
 ```
